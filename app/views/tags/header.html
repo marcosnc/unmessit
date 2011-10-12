@@ -1,0 +1,26 @@
+<div class="topbar" data-dropdown="dropdown">
+  <div class="fill">
+    <div class="container">
+      <a class="brand" href="#">&{'menu.projectName'}</a>
+      <ul class="nav">
+        <li #{if page == 'home'     }class="active"#{/if}><a href="@{Application.home}"     >&{'menu.home'}     </a></li>
+        <li #{if page == 'occupancy'}class="active"#{/if}><a href="@{Application.occupancy}">&{'menu.occupancy'}</a></li>
+        <li #{if page == 'clients'  }class="active"#{/if}><a href="@{Application.clients}"  >&{'menu.clients'}  </a></li>
+        <li #{if page == 'bookings' }class="active"#{/if}><a href="@{Application.bookings}" >&{'menu.bookings'} </a></li>
+        <li #{if page == 'conf'     }class="active"#{/if}class="dropdown">
+          <a href="#" class="dropdown-toggle">&{'menu.conf'}</a>
+          <ul class="dropdown-menu">
+            <li><a href="@{Configuration.groups}"  >&{'menu.conf.groups'}</a></li>
+            <li><a href="@{Configuration.rooms}"   >&{'menu.conf.rooms'}</a></li>
+            <li class="divider"></li>
+            <li><a href="@{Configuration.settings}">&{'menu.conf.settings'}</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav secondary-nav">
+        <li><a href="@{Application.contact}">&{'menu.contact'}</a></li>
+        <li><a href="@{Application.about}"  >&{'menu.about'}</a></li>
+      </ul>
+    </div>
+  </div>
+</div>

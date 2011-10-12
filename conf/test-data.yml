@@ -1,0 +1,49 @@
+Client(marcos):
+   createdOn  : 2011-09-01
+   name       : Marcos
+   surname    : Nuñez Cortes
+   description: No se que poner aca todavía
+   birthday   : 1977-06-12
+   address    : En algún lugar de, Ituzaingó, Bs. As., Argentina
+   tels       : 1111-1111; 15-2222-22222
+   emails     : marcosnc@unmessit.com
+   twitter    : marcosnc77
+   facebook   : http://www.facebook.com/marcosnc
+
+ClientComment(marcos-1):
+   client : marcos
+   addedOn: 2011-09-21 14:00:00
+   text   : Este es el primer comentario
+
+ClientComment(marcos-2):
+   client : marcos
+   addedOn: 2011-09-22 15:00:00
+   text   : Este es el segundo comentario
+
+#----------------------------------------------------------------------------------------------------
+
+Client(cinthia):
+   createdOn  : 2011-09-01
+   name       : Cinthia
+   surname    : Nozieres
+   description: Es la esposa de Marcos Nuñez Cortes
+   birthday   : 1976-07-20
+   address    : En algún lugar de, Ituzaingó, Bs. As., Argentina
+   tels       : 3333-3333; 15-4444-4444
+   emails     : cinthia@unmessit.com
+
+ClientComment(cinthia-1):
+   client : cinthia
+   addedOn: 2011-09-10 14:00:00
+   text   : Este es el primer comentario para Cinthia
+
+ClientComment(cinthia-2):
+   client : cinthia
+   addedOn: 2011-09-11 15:00:00
+   text   : Este es el segundo comentario para Cinthia
+
+ClientComment(cinthia-3):
+   client : cinthia
+   addedOn: 2011-09-12 15:00:00
+   text   : Este es el tercer comentario para Cinthia
+          

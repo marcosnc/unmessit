@@ -1,0 +1,35 @@
+# You can specialize this file for each language.
+# For example, for French create a messages.fr file
+#
+
+general.underConstruction=En construcción...
+
+menu.projectName=UnMessIt
+menu.home=Inicio
+menu.occupancy=Ocupación
+menu.clients=Clientes
+menu.bookings=Reservas
+menu.conf=Configuración
+menu.conf.groups=Grupos
+menu.conf.rooms=Habitaciones
+menu.conf.settings=Avanzada
+menu.contact=Contáctenos
+menu.about=Acerca de...
+
+home.title=Un-mess it!
+home.toolDescription=Un-mess it! es un sistema de <b>Administración Hotelera</b> que le permitirá mantener organizados todos los datos de sus clientes, sus reservas, viéndolas gráficamente.
+home.start=Comenzar
+
+occupancy.title=Planilla de Ocupación
+
+clients.title=Clientes
+
+bookings.title=Reservas
+
+conf.groups.title=Grupos de Habitaciones
+conf.rooms.title=Habitaciones
+conf.settings.title=Configuraciones del sistema
+
+contact.title=Contáctenos
+
+about.title=Acerca de Un-mess it!
