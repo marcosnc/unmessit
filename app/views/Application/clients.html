@@ -7,12 +7,26 @@
   <div class="content">
     <h1>&{'clients.title'}</h1>
 
-    <ul>
+<div style="width:100%" class="mini">
+<table id="clientsTable" class="zebra-striped">
+ <thead>
+  <tr>
+   <th>Surname</th>
+   <th>Name</th>
+  </tr>
+ </thead>
+ <tbody>
     #{list items:clients, as:'client'}
-      <li>${client.surname}, ${client.name}</li>
+      <tr>
+       <td>${client.surname}</td>
+       <td>${client.name}</td>
+      </tr>
     #{/list}
-    </ul>
-
+ </tbody>
+ <tfoot></tfoot>
+</table>
+</div>
+    
   </div>
 
   <footer>
@@ -20,3 +34,11 @@
   </footer>
 
 </div> <!-- /container -->
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#clientsTable').dataTable();
+} );
+</script>
+
