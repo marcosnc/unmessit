@@ -3,8 +3,10 @@
 #
 
 general.underConstruction=En construcción...
+general.back=Volver
 
-menu.projectName=UnMessIt
+#menu.projectName=UnMessIt
+menu.projectName=Hoteles
 menu.home=Inicio
 menu.occupancy=Ocupación
 menu.clients=Clientes

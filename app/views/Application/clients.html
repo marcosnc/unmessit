@@ -7,7 +7,7 @@
   <div class="content">
     <h1>&{'clients.title'}</h1>
 
-<div style="width:100%" class="mini">
+<div id="clientsTableDiv"style="width:100%" class="mini">
 <table id="clientsTable" class="zebra-striped">
  <thead>
   <tr>
@@ -18,13 +18,18 @@
  <tbody>
     #{list items:clients, as:'client'}
       <tr>
-       <td>${client.surname}</td>
+       <td><a href="#" class="selectClient" clientId="${client.id}">${client.surname}</a></td>
        <td>${client.name}</td>
       </tr>
     #{/list}
  </tbody>
  <tfoot></tfoot>
 </table>
+</div>
+
+<div style="width:100%" class="mini" id="infoClient">
+<h3 id="infoClientTitle"></h3>
+<a href="#" id="infoClientBack">&{'general.back'}</a>
 </div>
     
   </div>
@@ -38,7 +43,24 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
+	$('#infoClient').hide();
     $('#clientsTable').dataTable();
-} );
+    
+    $('a.selectClient').click(function(){
+    	// TODO: Retrieve client data from server
+    	var _surname = $(this).text();
+    	var _name = $(this).parent().next().text();
+    	var _clientTitle = _surname + ", " + _name;
+    	$('#infoClientTitle').html(_clientTitle);
+    	$('#clientsTableDiv').hide();
+    	$('#infoClient').show();
+    });
+    
+    $('#infoClientBack').click(function(){
+    	$('#infoClient').hide();
+    	$('#clientsTableDiv').show();
+    });
+    
+});
 </script>
 
