@@ -11,8 +11,8 @@
 <table id="clientsTable" class="zebra-striped">
  <thead>
   <tr>
-   <th>Surname</th>
-   <th>Name</th>
+   <th>&{'clients.surname'}</th>
+   <th>&{'clients.name'}</th>
   </tr>
  </thead>
  <tbody>
@@ -28,9 +28,57 @@
 </div>
 
 <div style="width:100%" class="mini" id="infoClient">
+<form id='infoClientForm'>
+<input id="client_id" name="client.id" type="hidden">
+
 <h3 id="infoClientTitle"></h3>
-<a href="#" id="infoClientBack">&{'general.back'}</a>
+
+<div id="infoClientTabs">
+ <ul>
+  <li><a href="#infoClientTabs-1">&{'clients.personalData'}</a></li>
+  <li><a href="#infoClientTabs-2">&{'clients.contactData'}</a></li>
+  <li><a href="#infoClientTabs-3">&{'clients.comments'}</a></li>
+ </ul>
+ <div id="infoClientTabs-1">
+  <fieldset>
+   <div class="clearfix">
+    <label for="client_surname">&{'clients.surname'}</label>
+    <div class="input">
+     <input id="client_surname" name="client.surname" class="xlarge" type="text">
+    </div>
+   </div>
+   <div class="clearfix">
+    <label for="client_name">&{'clients.name'}</label>
+    <div class="input">
+     <input id="client_name" name="client.name" class="large" type="text">
+    </div>
+   </div>
+  </fieldset>
+ </div>
+ <div id="infoClientTabs-2">
+  <fieldset>
+   <div class="clearfix">
+    <label for="client_address">&{'clients.address'}</label>
+    <div class="input">
+     <input id="client_address" name="client.address" class="large" type="text">
+    </div>
+   </div>
+   <div class="clearfix">
+    <label for="client_tels">&{'clients.tels'}</label>
+    <div class="input">
+     <input id="client_tels" name="client.tels" class="large" type="text">
+    </div>
+   </div>
+  </fieldset>
+ </div>
+ <div id="infoClientTabs-3">
+ </div>
 </div>
+<br />
+<a href="#" id="infoClientBack" class="btn primary">&{'general.back'}</a>
+<a href="#" id="infoClientSave" class="btn primary pull-right">&{'general.save'}</a>
+</form>
+</div> <!-- infoClient -->
     
   </div>
 
@@ -45,18 +93,52 @@
 $(document).ready(function() {
 	$('#infoClient').hide();
     $('#clientsTable').dataTable();
+    $('#infoClientTabs').tabs();
     
-    $('a.selectClient').click(function(){
-    	// TODO: Retrieve client data from server
-    	var _surname = $(this).text();
-    	var _name = $(this).parent().next().text();
-    	var _clientTitle = _surname + ", " + _name;
-    	$('#infoClientTitle').html(_clientTitle);
-    	$('#clientsTableDiv').hide();
-    	$('#infoClient').show();
+    $('a.selectClient').live('click', function(){
+    	var _clientId = $(this).attr("clientId");
+		$.post("@{clientById}", {clientId:_clientId}, function(data){
+			if( data!="ERROR" ){
+				var _client = data;
+				if(_client.id>0){
+			    	var _clientTitle = _client.surname + ", " + _client.name;
+			    	$('#infoClientTitle').html(_clientTitle);
+			    	$('#client_id'     ).val(_client.id);
+			    	$('#client_surname').val(_client.surname);
+			    	$('#client_name'   ).val(_client.name);
+			    	$('#client_address').val(_client.address);
+			    	$('#client_tels'   ).val(_client.tels);
+			    	if(_client.comments.length>0){
+				    	$('#infoClientTabs-3').html("Hay " + _client.comments.length + " comentarios.");
+			    	} else {
+				    	$('#infoClientTabs-3').html("No hay comentarios");
+			    	}
+				}
+		    	
+		    	$('#clientsTableDiv').hide();
+		    	$('#infoClient').show();
+			} else {
+				alert(data);
+			}
+		});
     });
     
-    $('#infoClientBack').click(function(){
+    $('#infoClientSave').click(function(){
+    	$.post(
+    		'@{saveClient()}',
+    		$('#infoClientForm').serialize(),
+    		function(data){
+    			if(data!="OK"){
+        			alert(data);
+    			} else {
+        	    	$('#infoClient').hide();
+        	    	$('#clientsTableDiv').show();
+    			}
+    		},
+    		'text');
+    });
+    
+	$('#infoClientBack').click(function(){
     	$('#infoClient').hide();
     	$('#clientsTableDiv').show();
     });

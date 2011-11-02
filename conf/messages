@@ -4,6 +4,7 @@
 
 general.underConstruction=En construcción...
 general.back=Volver
+general.save=Guardar
 
 #menu.projectName=UnMessIt
 menu.projectName=Hoteles
@@ -18,13 +19,22 @@ menu.conf.settings=Avanzada
 menu.contact=Contáctenos
 menu.about=Acerca de...
 
-home.title=Un-mess it!
-home.toolDescription=Un-mess it! es un sistema de <b>Administración Hotelera</b> que le permitirá mantener organizados todos los datos de sus clientes, sus reservas, viéndolas gráficamente.
+#home.title=Un-mess it!
+home.title=Hoteles
+#home.toolDescription=Un-mess it! es un sistema de <b>Administración Hotelera</b> que le permitirá mantener organizados todos los datos de sus clientes, sus reservas, viéndolas gráficamente.
+home.toolDescription=Hoteles es un sistema de <b>Administración Hotelera</b> que le permitirá mantener organizados todos los datos de sus clientes, sus reservas, viéndolas gráficamente.
 home.start=Comenzar
 
 occupancy.title=Planilla de Ocupación
 
 clients.title=Clientes
+clients.personalData=Datos Personales
+clients.contactData=Contacto
+clients.comments=Comentarios
+clients.name=Nombre
+clients.surname=Apellido
+clients.address=Dirección
+clients.tels=Tels
 
 bookings.title=Reservas
 

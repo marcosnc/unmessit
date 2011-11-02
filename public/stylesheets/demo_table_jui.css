@@ -133,7 +133,7 @@ table.display thead th div.DataTables_sort_wrapper span {
 }
 
 .dataTables_filter {
-	width: 50%;
+	/* mnc-datatables width: 50%; */
 	float: right;
 	text-align: right;
 	padding-bottom: 10px; /* mnc */

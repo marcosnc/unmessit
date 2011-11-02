@@ -616,7 +616,7 @@ label {
   padding-top: 6px;
   font-size: 13px;
   line-height: 18px;
-  /* mnc-datatables float: left; */
+  float: left;
   /* mnc-datatables width: 130px; */
   text-align: right;
   color: #404040;
